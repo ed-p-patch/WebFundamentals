@@ -1,0 +1,24 @@
+#images{
+    margin-left: 150px;
+}
+#images img{
+    width: 125px;
+    height: auto;
+    display: inline-block;
+    margin: 10px;
+    border-style: solid;
+    align-content: center;
+}
+#wrapper{
+    background: palegreen;
+    width: 970px;
+    height: 430px;
+}
+.reappear{
+    border-radius: 15px;
+    color:white;
+    background-color: darkolivegreen;
+    padding: 10px;
+    margin-left:150px;
+    margin-bottom: 20px;
+}

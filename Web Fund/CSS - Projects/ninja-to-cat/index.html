@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            img{ margin: 5px; display: block; }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('img').click(function() {
+                    var current_number = $(this).attr("number");
+                    var dom_tile = $(this).attr("src");
+                    
+                    if(dom_tile == 'img/ninja'+current_number+'.png'){
+                        $(this).attr("src", 'img/cat'+current_number+'.png');
+                    }
+                    else if(dom_tile === 'img/cat'+current_number+'.png'){
+                        $(this).attr("src", 'img/ninja'+current_number+'.png');
+                    }
+                });
+            });
+        </script>
+        <Title>Ninja to cat</Title>
+    </head>
+    <body>
+        <img src="img/ninja0.png" number="0">
+        <img src="img/ninja1.png" number="1">
+        <img src="img/ninja2.png" number="2">
+        <img src="img/ninja3.png" number="3">
+        <img src="img/ninja4.png" number="4">
+    </body>
+</html>

@@ -1,0 +1,13 @@
+.target{
+    display: inline-block;
+    border: 20px solid red;
+    vertical-align: top;
+    width: 330px;   
+}
+.dex_wrapper{
+    padding: 10px;
+}
+.pokemon{
+    display: inline-block;
+    width: 860px;
+}

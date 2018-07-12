@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script>
+            function draw_left(num){
+                string = '';
+                for(var x = 1; x < num+1; ++x){
+                    for(var y = 0; y < x; ++y){
+                        string += '*';
+                    }
+                    console.log(string);
+                }
+            }
+            draw_left(5);
+            function draw_right(num){
+                string = '';
+                cnt = 1;
+                for(var x = 0; x < num; ++x){
+                    for(var y = 0; y < num-cnt; ++y){
+                        string += ' ';
+                    }
+                    for(var z = 0; z < cnt; ++z){
+                        string += '*';
+                    }
+                    console.log(string);
+                }
+            }
+            draw_right(5);
+            function draw_center(num){
+
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Hello World</h2>
+    </body>
+</html>

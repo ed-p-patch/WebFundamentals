@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            
+            $(document).ready(function(){
+                var pokedex = [];
+
+                for(var x = 1; x < 4; ++x){
+                    var pokemon = '';
+                    $.get("https://pokeapi.co/api/v2/pokemon/"+x+"/", function(res) {
+                    pokemon = res;
+                    console.log(pokemon);
+                    console.log("Hi");
+                    }, "json");
+                    pokedex.push(pokemon);    
+                }
+                console.log(pokemon[3]);
+            });
+
+        </script>
+        <title>PokeAPI</title>    
+    </head>
+    <body>
+        <div class="pokemon">
+        </div>
+        <div class="detail-ar">
+        </div>
+    </body>
+</html>

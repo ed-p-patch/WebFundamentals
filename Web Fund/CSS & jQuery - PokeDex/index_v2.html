@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <style>
+            .target{
+                display: inline-block;
+                border: 20px solid red;
+                vertical-align: top;
+                width: 330px;   
+            }
+            .dex_wrapper{
+                padding: 10px;
+            }
+            .pokemon{
+                display: inline-block;
+                width: 860px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+ 
+            $(document).ready(function(){
+                show_pokes();
+
+                $("img").click(function() {
+                    var select_pokemon = this.getAttribute('number');
+                    $.get("https://pokeapi.co/api/v2/pokemon/"+select_pokemon+'/', function(res) {
+                        
+                    var poke = {
+                        number: select_pokemon,
+                        name: res.name,
+                        types: [],
+                        height: res.height ,
+                        weight: res.weight 
+                    };
+                    var arr = res.types;
+                    // console.log(arr);
+                    // console.log(arr.length);
+                    for(var z = 0; z < arr.length; ++z){
+                        poke.types.push(arr[z].type.name);
+                    }
+
+                    update_display(poke); 
+                    }, "json");
+                });
+            });
+
+            function show_pokes(){
+                for(var x = 1; x < 153; ++x){
+                    $('.pokemon').append('<img src="https://pokeapi.co/media/img/'+[x]+'.png" number='+[x]+'>');
+                }
+            }
+
+            function update_display(obj){
+                // console.log(obj);
+                var doc = '<div class="dex_wrapper"><h1>'+obj.name+'</h1>'+
+                            '<img src="http://pokeapi.co/media/img/'+obj.num+'.png/" number='+obj.num+'>'+
+                            '<ul><h3>Types</h3>';
+                var types = obj.arr;
+                for(var y = 0; y < types.length; ++y){
+                    doc += '<li>'+ types[y].name+'</li>';
+                }
+                doc +='</ul>'+
+                        '<h3>Height</h3>'+
+                        '<p>'+obj.height+'</p>'+
+                        '<h3>Weight</h3>'+
+                        '<p>'+obj.weight+'</p>'+
+                        '</div>';
+                $('.target').html(doc);
+            }
+        </script>
+        <title>PokeAPI</title>    
+    </head>
+    <body>
+        <div class="pokemon">
+        </div>
+        <div class="target">
+        </div>
+    </body>
+</html>
